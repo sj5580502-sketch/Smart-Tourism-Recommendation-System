@@ -1,4 +1,4 @@
-# Smart Tourism — 10 Correct Places
+# Smart Tourism — 10 Places
 
 This version deliberately contains only 10 Jharkhand destinations.
 
