@@ -1,0 +1,5 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Smart Tourism{% endblock %}</title><link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"></head>
+<body><nav><a class="brand" href="/">🌍 Smart Tourism</a><div class="links"><a href="/">Home</a><a href="/search">Explore</a>{% if session.get('user_id') %}<a href="/profile">Profile</a><a href="/logout">Logout</a>{% else %}<a href="/login">Login</a>{% endif %}</div></nav>
+{% with m=get_flashed_messages() %}{% if m %}<div class="flash">{{m[0]}}</div>{% endif %}{% endwith %}{% block content %}{% endblock %}
+<footer>Smart Tourism · 10 Jharkhand Destinations · ML · Flask · SQLite · Live Weather</footer></body></html>

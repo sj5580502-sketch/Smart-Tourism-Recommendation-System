@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<section class="section"><h1>Admin</h1><p>This version intentionally contains only the 10 selected destinations.</p><div class="admin">{% for p in places %}<div><b>{{p.name}}</b><span>{{p.city}}</span></div>{% endfor %}</div><p>Demo admin: admin@smarttourism.com / admin123</p></section>{% endblock %}

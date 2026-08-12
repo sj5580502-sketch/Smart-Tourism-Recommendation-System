@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Smart Tourism{% endblock %}{% block content %}
+<section class="hero"><div><span>AI TOURISM RECOMMENDER</span><h1>Explore Jharkhand<br><b>the right way.</b></h1><p>Only 10 carefully selected destinations — with destination-specific images, ML recommendations and live weather.</p><a class="btn" href="#planner">Plan my trip</a></div></section>
+<section class="section" id="planner"><h2>Find your destination</h2><form class="planner" method="post" action="/recommend">
+<label>Interest<select name="interest"><option value="">Any</option><option>Nature</option><option>Waterfall</option><option>Wildlife</option><option>Adventure</option><option>Religious</option><option>Photography</option><option>Hill Station</option><option>Family</option></select></label>
+<label>City<select name="city"><option value="">Any city</option>{% for c in cities %}<option>{{c}}</option>{% endfor %}</select></label>
+<label>Budget<select name="budget"><option value="">Any</option><option>Low Budget</option><option>Medium Budget</option><option>High Budget</option></select></label>
+<label>Season<select name="season"><option value="">Any</option><option>Summer</option><option>Monsoon</option><option>Winter</option></select></label><button class="btn">✨ Recommend</button></form></section>
+<section class="section alt"><h2>10 verified destinations</h2><div class="grid">{% for p in places %}<article class="card">
+{% if p.image_url %}<img src="{{p.image_url}}" alt="{{p.name}}">{% else %}<div class="noimg">Image will load from Wikimedia Commons</div>{% endif %}
+<div class="body"><span>{{p.category.split(',')[0]}}</span><h3>{{p.name}}</h3><p>📍 {{p.city}}, Jharkhand</p><p>{{p.description}}</p><a href="/place/{{p.id}}">View details →</a></div></article>{% endfor %}</div></section>{% endblock %}
